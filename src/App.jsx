@@ -1,4 +1,4 @@
-import logo from "./assets/lm_logo.png";
+import logo from "./assets/lm_new_logo.jpeg";
 import co from "./assets/co_lm.jpeg";
 import { useForm, ValidationError } from "@formspree/react";
 
@@ -7,15 +7,15 @@ function ContactForm() {
 
   if (state.succeeded) {
     return (
-      <div className="rounded-[2rem] bg-white p-8 shadow-sm ring-1 ring-yellow-200">
+      <div className="rounded-[2rem] bg-white p-8 shadow-[0_12px_40px_rgba(15,23,42,0.08)] ring-1 ring-yellow-200 transition-all duration-300">
         <div className="flex min-h-[420px] flex-col items-center justify-center text-center">
-          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-yellow-500 text-2xl font-bold text-[#20104a]">
+          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-yellow-500 text-2xl font-bold text-[#20104a] shadow-md">
             ✓
           </div>
-          <h3 className="text-2xl font-black text-[#20104a]">
+          <h3 className="text-3xl font-black tracking-tight text-[#20104a]">
             Demande envoyée
           </h3>
-          <p className="mt-4 max-w-md leading-7 text-slate-600">
+          <p className="mt-4 max-w-md text-base leading-8 text-slate-600">
             Merci. Votre demande a bien été envoyée. Nous vous répondrons dans
             les plus brefs délais.
           </p>
@@ -27,7 +27,7 @@ function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-[2rem] bg-white p-8 shadow-sm ring-1 ring-yellow-200"
+      className="rounded-[2rem] bg-white p-8 shadow-[0_12px_40px_rgba(15,23,42,0.08)] ring-1 ring-yellow-200 transition-all duration-300"
     >
       <div className="grid gap-5 md:grid-cols-2">
         <div>
@@ -36,7 +36,7 @@ function ContactForm() {
             type="text"
             name="nom"
             required
-            className="w-full rounded-2xl border border-slate-200 px-4 py-4 outline-none transition focus:border-yellow-500"
+            className="w-full rounded-2xl border border-slate-200 px-4 py-4 text-[15px] text-slate-700 outline-none transition duration-300 focus:border-yellow-500 focus:shadow-[0_0_0_4px_rgba(234,179,8,0.12)]"
             placeholder="Nom"
           />
           <ValidationError
@@ -52,7 +52,7 @@ function ContactForm() {
             id="entreprise"
             type="text"
             name="entreprise"
-            className="w-full rounded-2xl border border-slate-200 px-4 py-4 outline-none transition focus:border-yellow-500"
+            className="w-full rounded-2xl border border-slate-200 px-4 py-4 text-[15px] text-slate-700 outline-none transition duration-300 focus:border-yellow-500 focus:shadow-[0_0_0_4px_rgba(234,179,8,0.12)]"
             placeholder="Entreprise"
           />
           <ValidationError
@@ -69,7 +69,7 @@ function ContactForm() {
             type="email"
             name="email"
             required
-            className="w-full rounded-2xl border border-slate-200 px-4 py-4 outline-none transition focus:border-yellow-500"
+            className="w-full rounded-2xl border border-slate-200 px-4 py-4 text-[15px] text-slate-700 outline-none transition duration-300 focus:border-yellow-500 focus:shadow-[0_0_0_4px_rgba(234,179,8,0.12)]"
             placeholder="Email"
           />
           <ValidationError
@@ -85,7 +85,7 @@ function ContactForm() {
             id="telephone"
             type="tel"
             name="telephone"
-            className="w-full rounded-2xl border border-slate-200 px-4 py-4 outline-none transition focus:border-yellow-500"
+            className="w-full rounded-2xl border border-slate-200 px-4 py-4 text-[15px] text-slate-700 outline-none transition duration-300 focus:border-yellow-500 focus:shadow-[0_0_0_4px_rgba(234,179,8,0.12)]"
             placeholder="Téléphone"
           />
           <ValidationError
@@ -101,7 +101,7 @@ function ContactForm() {
             id="message"
             name="message"
             required
-            className="min-h-[160px] w-full rounded-2xl border border-slate-200 px-4 py-4 outline-none transition focus:border-yellow-500"
+            className="min-h-[160px] w-full rounded-2xl border border-slate-200 px-4 py-4 text-[15px] text-slate-700 outline-none transition duration-300 focus:border-yellow-500 focus:shadow-[0_0_0_4px_rgba(234,179,8,0.12)]"
             placeholder="Décrivez votre besoin"
           ></textarea>
           <ValidationError
@@ -122,7 +122,7 @@ function ContactForm() {
       <button
         type="submit"
         disabled={state.submitting}
-        className="mt-6 rounded-2xl bg-yellow-500 px-6 py-4 font-semibold text-[#20104a] transition hover:bg-yellow-400 disabled:cursor-not-allowed disabled:opacity-60"
+        className="mt-6 rounded-full bg-yellow-500 px-6 py-4 text-sm font-semibold text-[#20104a] shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-yellow-400 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-60"
       >
         {state.submitting ? "Envoi..." : "Envoyer la demande"}
       </button>
@@ -185,7 +185,7 @@ export default function App() {
 
   const qualityChecks = [
     "25% des questionnaires sont supervisés sur le terrain.",
-    "40% des questionnaires sont back-checkés.",
+    "30% des questionnaires sont back-checkés.",
     "Vérification GPS de tous les questionnaires.",
     "Contrôle du timing et de la durée d’administration.",
     "Enregistrements silencieux, sons et photos.",
@@ -193,65 +193,65 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
-      <header className="sticky top-0 z-50 border-b border-yellow-200 bg-white/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3">
+    <div className="min-h-screen bg-white text-slate-900 antialiased">
+      <header className="sticky top-0 z-50 border-b border-[#f1e9ff] bg-white/95 backdrop-blur">
+        <div className="flex w-full items-center justify-between px-6 py-4">
+          <div className="flex items-center gap-5">
             <img
               src={logo}
               alt="LM_FIELD Logo"
-              className="h-14 w-14 rounded-full object-cover shadow-sm"
+              className="h-24 w-auto drop-shadow-sm transition-transform duration-300 hover:scale-105"
             />
             <div>
-              <p className="text-lg font-bold leading-none text-[#20104a]">
+              <p className="text-2xl font-extrabold tracking-tight text-[#20104a]">
                 LM_FIELD
               </p>
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm font-medium text-slate-500 sm:text-base">
                 Field Research Operations
               </p>
             </div>
           </div>
 
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-10 md:flex">
             <a
               href="#services"
-              className="text-sm font-medium text-slate-700 hover:text-yellow-600"
+              className="text-[15px] font-medium text-slate-700 transition-all duration-300 hover:-translate-y-[1px] hover:text-yellow-600"
             >
               Services
             </a>
             <a
               href="#expertise"
-              className="text-sm font-medium text-slate-700 hover:text-yellow-600"
+              className="text-[15px] font-medium text-slate-700 transition-all duration-300 hover:-translate-y-[1px] hover:text-yellow-600"
             >
               Expertise
             </a>
             <a
               href="#collecte"
-              className="text-sm font-medium text-slate-700 hover:text-yellow-600"
+              className="text-[15px] font-medium text-slate-700 transition-all duration-300 hover:-translate-y-[1px] hover:text-yellow-600"
             >
               Collecte
             </a>
             <a
               href="#reseau"
-              className="text-sm font-medium text-slate-700 hover:text-yellow-600"
+              className="text-[15px] font-medium text-slate-700 transition-all duration-300 hover:-translate-y-[1px] hover:text-yellow-600"
             >
               Réseau terrain
             </a>
             <a
               href="#qualite"
-              className="text-sm font-medium text-slate-700 hover:text-yellow-600"
+              className="text-[15px] font-medium text-slate-700 transition-all duration-300 hover:-translate-y-[1px] hover:text-yellow-600"
             >
               Qualité
             </a>
             <a
               href="#equipe"
-              className="text-sm font-medium text-slate-700 hover:text-yellow-600"
+              className="text-[15px] font-medium text-slate-700 transition-all duration-300 hover:-translate-y-[1px] hover:text-yellow-600"
             >
               Équipe
             </a>
             <a
               href="#contact"
-              className="text-sm font-medium text-slate-700 hover:text-yellow-600"
+              className="text-[15px] font-medium text-slate-700 transition-all duration-300 hover:-translate-y-[1px] hover:text-yellow-600"
             >
               Contact
             </a>
@@ -259,7 +259,7 @@ export default function App() {
 
           <a
             href="#contact"
-            className="hidden rounded-2xl bg-yellow-500 px-5 py-3 text-sm font-semibold text-[#20104a] shadow-sm transition hover:bg-yellow-400 sm:inline-flex"
+            className="hidden rounded-full bg-yellow-500 px-6 py-3 text-sm font-semibold text-[#20104a] shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-yellow-400 hover:shadow-xl sm:inline-flex"
           >
             Demander un devis
           </a>
@@ -268,12 +268,12 @@ export default function App() {
 
       <section className="relative overflow-hidden bg-[#160a38]">
         <div className="absolute inset-0 bg-gradient-to-r from-[#160a38] via-[#24115e] to-[#3c248a]" />
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-2 md:items-center md:py-24 lg:px-8">
+        <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 md:grid-cols-2 md:items-center md:py-24 lg:px-8">
           <div className="text-white">
-            <span className="inline-flex rounded-full border border-yellow-400/40 bg-yellow-400/10 px-4 py-2 text-sm font-medium text-yellow-300">
+            <span className="inline-flex rounded-full border border-yellow-400/40 bg-yellow-400/10 px-4 py-2 text-sm font-medium text-yellow-300 shadow-sm">
               Études quantitatives & qualitatives
             </span>
-            <h1 className="mt-6 max-w-3xl text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 max-w-3xl text-5xl font-black leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
               Votre partenaire terrain au Maroc et en Afrique du Nord
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/80 sm:text-lg">
@@ -284,28 +284,30 @@ export default function App() {
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="#services"
-                className="rounded-2xl bg-yellow-500 px-6 py-3 font-semibold text-[#20104a] transition hover:bg-yellow-400"
+                className="rounded-2xl bg-yellow-500 px-6 py-3.5 text-sm font-semibold text-[#20104a] shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-yellow-400 hover:shadow-xl"
               >
                 Découvrir nos services
               </a>
               <a
                 href="#contact"
-                className="rounded-2xl border border-yellow-300/40 px-6 py-3 font-semibold text-yellow-200 transition hover:bg-white/10"
+                className="rounded-2xl border border-yellow-300/40 px-6 py-3.5 text-sm font-semibold text-yellow-200 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10"
               >
                 Nous contacter
               </a>
             </div>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-5 sm:grid-cols-2">
             {services.map((service) => (
               <div
                 key={service.title}
-                className="rounded-3xl border border-yellow-300/10 bg-white/10 p-6 text-white shadow-2xl backdrop-blur"
+                className="rounded-3xl border border-yellow-300/10 bg-white/10 p-7 text-white shadow-[0_12px_40px_rgba(0,0,0,0.16)] backdrop-blur transition-all duration-300 hover:-translate-y-1.5 hover:border-yellow-300/30 hover:shadow-[0_20px_55px_rgba(0,0,0,0.24)]"
               >
                 <div className="text-3xl">{service.icon}</div>
-                <h3 className="mt-4 text-xl font-bold">{service.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-white/75">
+                <h3 className="mt-4 text-2xl font-bold tracking-tight">
+                  {service.title}
+                </h3>
+                <p className="mt-3 text-[15px] leading-7 text-white/75">
                   {service.description}
                 </p>
               </div>
@@ -316,14 +318,14 @@ export default function App() {
 
       <section
         id="expertise"
-        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+        className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8"
       >
         <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-600">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-yellow-600">
               À propos
             </p>
-            <h2 className="mt-3 text-3xl font-black tracking-tight text-[#20104a] sm:text-4xl">
+            <h2 className="mt-3 text-4xl font-black tracking-tight text-[#20104a] sm:text-5xl">
               Une structure agile, performante et orientée résultats
             </h2>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
@@ -333,17 +335,17 @@ export default function App() {
             </p>
           </div>
 
-          <div className="rounded-3xl bg-[#faf7ef] p-8 shadow-sm ring-1 ring-yellow-200">
-            <h3 className="text-xl font-bold text-[#20104a]">
+          <div className="rounded-3xl bg-[#faf7ef] p-8 shadow-[0_12px_40px_rgba(15,23,42,0.06)] ring-1 ring-yellow-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(15,23,42,0.09)]">
+            <h3 className="text-2xl font-bold tracking-tight text-[#20104a]">
               Pourquoi choisir LM_FIELD ?
             </h3>
             <div className="mt-6 space-y-4">
               {strengths.map((item) => (
                 <div key={item} className="flex items-start gap-3">
-                  <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-yellow-500 text-sm font-bold text-[#20104a]">
+                  <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-yellow-500 text-sm font-bold text-[#20104a] shadow-sm">
                     ✓
                   </div>
-                  <p className="leading-7 text-slate-700">{item}</p>
+                  <p className="text-[15px] leading-7 text-slate-700">{item}</p>
                 </div>
               ))}
             </div>
@@ -351,13 +353,13 @@ export default function App() {
         </div>
       </section>
 
-      <section id="services" className="bg-[#f8f7fc] py-16">
+      <section id="services" className="bg-[#f8f7fc] py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-600">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-yellow-600">
               Nos services
             </p>
-            <h2 className="mt-3 text-3xl font-black tracking-tight text-[#20104a] sm:text-4xl">
+            <h2 className="mt-3 text-4xl font-black tracking-tight text-[#20104a] sm:text-5xl">
               Des solutions terrain structurées pour chaque besoin d’étude
             </h2>
           </div>
@@ -366,18 +368,18 @@ export default function App() {
             {services.map((service) => (
               <article
                 key={service.title}
-                className="rounded-3xl border border-[#e7e1f7] bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                className="rounded-3xl border border-[#e7e1f7] bg-white p-8 shadow-[0_10px_30px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(15,23,42,0.10)]"
               >
                 <div className="text-4xl">{service.icon}</div>
-                <h3 className="mt-5 text-xl font-bold text-[#20104a]">
+                <h3 className="mt-5 text-2xl font-bold tracking-tight text-[#20104a]">
                   {service.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-slate-600">
+                <p className="mt-4 text-[15px] leading-7 text-slate-600">
                   {service.description}
                 </p>
                 <a
                   href="#contact"
-                  className="mt-5 inline-block font-semibold text-yellow-600"
+                  className="mt-5 inline-block text-sm font-semibold text-yellow-600 transition hover:text-yellow-700"
                 >
                   En savoir plus →
                 </a>
@@ -389,13 +391,13 @@ export default function App() {
 
       <section
         id="collecte"
-        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+        className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8"
       >
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-600">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-yellow-600">
             Collecte des données
           </p>
-          <h2 className="mt-3 text-3xl font-black tracking-tight text-[#20104a] sm:text-4xl">
+          <h2 className="mt-3 text-4xl font-black tracking-tight text-[#20104a] sm:text-5xl">
             Une collecte CAPI plus rapide, plus fiable et plus intelligente
           </h2>
           <p className="mt-6 text-lg leading-8 text-slate-600">
@@ -408,22 +410,24 @@ export default function App() {
           {capiBenefits.map((item) => (
             <div
               key={item}
-              className="rounded-3xl border border-yellow-200 bg-[#faf7ef] p-8 shadow-sm"
+              className="rounded-3xl border border-yellow-200 bg-[#faf7ef] p-8 shadow-[0_10px_30px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(15,23,42,0.08)]"
             >
               <div className="mb-4 text-2xl">📊</div>
-              <h3 className="text-xl font-bold text-[#20104a]">{item}</h3>
+              <h3 className="text-2xl font-bold tracking-tight text-[#20104a]">
+                {item}
+              </h3>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="reseau" className="bg-[#f8f7fc] py-16">
+      <section id="reseau" className="bg-[#f8f7fc] py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-600">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-yellow-600">
               Réseau terrain
             </p>
-            <h2 className="mt-3 text-3xl font-black tracking-tight text-[#20104a] sm:text-4xl">
+            <h2 className="mt-3 text-4xl font-black tracking-tight text-[#20104a] sm:text-5xl">
               Une couverture terrain nationale structurée
             </h2>
           </div>
@@ -432,12 +436,12 @@ export default function App() {
             {fieldNetwork.map((item) => (
               <div
                 key={item.city}
-                className="rounded-3xl border border-[#e7e1f7] bg-white p-8 shadow-sm"
+                className="rounded-3xl border border-[#e7e1f7] bg-white p-8 shadow-[0_10px_30px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(15,23,42,0.08)]"
               >
-                <h3 className="text-2xl font-black text-[#20104a]">
+                <h3 className="text-3xl font-black tracking-tight text-[#20104a]">
                   {item.city}
                 </h3>
-                <div className="mt-6 space-y-3 text-slate-700">
+                <div className="mt-6 space-y-3 text-[15px] text-slate-700">
                   <p>
                     <span className="font-bold text-yellow-600">
                       {item.supervisors}
@@ -457,13 +461,13 @@ export default function App() {
         </div>
       </section>
 
-      <section id="qualite" className="bg-[#1a0c44] py-16 text-white">
+      <section id="qualite" className="bg-[#1a0c44] py-20 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-400">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-yellow-400">
               Contrôle qualité
             </p>
-            <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+            <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
               Un système de contrôle qualité dynamique et rigoureux
             </h2>
           </div>
@@ -472,10 +476,10 @@ export default function App() {
             {qualityChecks.map((item) => (
               <div
                 key={item}
-                className="rounded-3xl border border-yellow-300/10 bg-white/5 p-8"
+                className="rounded-3xl border border-yellow-300/10 bg-white/5 p-8 shadow-[0_10px_30px_rgba(0,0,0,0.10)] transition-all duration-300 hover:-translate-y-1 hover:border-yellow-300/25 hover:shadow-[0_20px_45px_rgba(0,0,0,0.18)]"
               >
                 <div className="mb-4 text-2xl text-yellow-400">✓</div>
-                <p className="leading-7 text-white/80">{item}</p>
+                <p className="text-[15px] leading-7 text-white/80">{item}</p>
               </div>
             ))}
           </div>
@@ -484,58 +488,64 @@ export default function App() {
 
       <section
         id="equipe"
-        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+        className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8"
       >
         <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-start">
-          <div className="rounded-[2rem] border border-yellow-200 bg-[#faf7ef] p-8 shadow-sm">
+          <div className="rounded-[2rem] border border-yellow-200 bg-[#faf7ef] p-8 shadow-[0_12px_40px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(15,23,42,0.10)]">
             <img
               src={co}
               alt="Head of Operations"
-              className="mx-auto h-32 w-32 rounded-full object-cover border-4 border-yellow-400 shadow-lg"
+              className="mx-auto h-32 w-32 rounded-full border-4 border-yellow-400 object-cover shadow-lg"
             />
-            <h3 className="mt-6 text-center text-2xl font-black text-[#20104a]">
+            <h3 className="mt-6 text-center text-3xl font-black tracking-tight text-[#20104a]">
               Said Mchater
             </h3>
-            <p className="mt-2 text-center font-semibold text-yellow-700">
+            <p className="mt-2 text-center text-base font-semibold text-yellow-700">
               Head of operations
             </p>
-            <p className="mt-4 text-center text-slate-600">
+            <p className="mt-4 text-center text-[15px] text-slate-600">
               25 ans d’expérience
             </p>
           </div>
 
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-600">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-yellow-600">
               Notre équipe
             </p>
-            <h2 className="mt-3 text-3xl font-black tracking-tight text-[#20104a] sm:text-4xl">
+            <h2 className="mt-3 text-4xl font-black tracking-tight text-[#20104a] sm:text-5xl">
               Une direction terrain expérimentée
             </h2>
             <p className="mt-6 text-lg leading-8 text-slate-600">
               Saïd Mchater pilote les opérations de LM_FIELD et veille au
               respect des standards ainsi qu’aux process de collecte.
             </p>
-            <p className="mt-4 leading-8 text-slate-600">
+            <p className="mt-4 text-base leading-8 text-slate-600">
               Il dispose d’une forte expérience dans la direction des
               opérations terrain, la supervision et les études nationales
               complexes.
             </p>
 
             <div className="mt-8 grid gap-4 md:grid-cols-3">
-              <div className="rounded-2xl border border-yellow-200 bg-white p-5 shadow-sm">
-                <p className="font-bold text-[#20104a]">Master</p>
+              <div className="rounded-2xl border border-yellow-200 bg-white p-5 shadow-[0_10px_25px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+                <p className="text-lg font-bold tracking-tight text-[#20104a]">
+                  Master
+                </p>
                 <p className="mt-2 text-sm leading-6 text-slate-600">
                   Marketing & communication – ESCA Casablanca
                 </p>
               </div>
-              <div className="rounded-2xl border border-yellow-200 bg-white p-5 shadow-sm">
-                <p className="font-bold text-[#20104a]">DESA</p>
+              <div className="rounded-2xl border border-yellow-200 bg-white p-5 shadow-[0_10px_25px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+                <p className="text-lg font-bold tracking-tight text-[#20104a]">
+                  DESA
+                </p>
                 <p className="mt-2 text-sm leading-6 text-slate-600">
                   Pragmatique cognitive – Université Hassan II
                 </p>
               </div>
-              <div className="rounded-2xl border border-yellow-200 bg-white p-5 shadow-sm">
-                <p className="font-bold text-[#20104a]">Licence</p>
+              <div className="rounded-2xl border border-yellow-200 bg-white p-5 shadow-[0_10px_25px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+                <p className="text-lg font-bold tracking-tight text-[#20104a]">
+                  Licence
+                </p>
                 <p className="mt-2 text-sm leading-6 text-slate-600">
                   Littérature Française option Linguistique
                 </p>
@@ -547,14 +557,14 @@ export default function App() {
 
       <section
         id="contact"
-        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+        className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8"
       >
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-600">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-yellow-600">
               Contact
             </p>
-            <h2 className="mt-3 text-3xl font-black tracking-tight text-[#20104a] sm:text-4xl">
+            <h2 className="mt-3 text-4xl font-black tracking-tight text-[#20104a] sm:text-5xl">
               Confiez-nous votre prochaine étude terrain
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
@@ -562,31 +572,31 @@ export default function App() {
               réactivité, proximité et exigence opérationnelle.
             </p>
 
-            <div className="mt-8 space-y-4 rounded-3xl bg-[#faf7ef] p-6 ring-1 ring-yellow-200">
-              <p className="text-slate-700">
+            <div className="mt-8 space-y-4 rounded-3xl bg-[#faf7ef] p-6 shadow-[0_12px_30px_rgba(15,23,42,0.04)] ring-1 ring-yellow-200">
+              <p className="text-[15px] text-slate-700">
                 <span className="font-bold text-[#20104a]">Adresse :</span>{" "}
                 Casablanca
               </p>
-              <p className="text-slate-700">
+              <p className="text-[15px] text-slate-700">
                 <span className="font-bold text-[#20104a]">Téléphone :</span>{" "}
                 +212661417965
               </p>
-              <p className="text-slate-700">
+              <p className="text-[15px] text-slate-700">
                 <span className="font-bold text-[#20104a]">Email :</span>{" "}
                 <a
                   href="mailto:smchater@lm-field.com"
-                  className="text-yellow-600 hover:underline"
+                  className="text-yellow-600 transition hover:underline"
                 >
                   smchater@lm-field.com
                 </a>
               </p>
-              <p className="text-slate-700">
+              <p className="text-[15px] text-slate-700">
                 <span className="font-bold text-[#20104a]">LinkedIn :</span>{" "}
                 <a
                   href="https://www.linkedin.com/in/said-mchater-b6797421?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-yellow-600 hover:underline break-all"
+                  className="break-all text-yellow-600 transition hover:underline"
                 >
                   https://www.linkedin.com/in/said-mchater
                 </a>
@@ -602,16 +612,16 @@ export default function App() {
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-white/80 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
           <p>© LM_FIELD — Refonte inspirée d’un style corporate moderne.</p>
           <div className="flex flex-wrap gap-6">
-            <a href="#services" className="hover:text-yellow-400">
+            <a href="#services" className="transition hover:text-yellow-400">
               Services
             </a>
-            <a href="#collecte" className="hover:text-yellow-400">
+            <a href="#collecte" className="transition hover:text-yellow-400">
               Collecte
             </a>
-            <a href="#qualite" className="hover:text-yellow-400">
+            <a href="#qualite" className="transition hover:text-yellow-400">
               Qualité
             </a>
-            <a href="#contact" className="hover:text-yellow-400">
+            <a href="#contact" className="transition hover:text-yellow-400">
               Contact
             </a>
           </div>
