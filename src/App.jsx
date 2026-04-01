@@ -1,5 +1,134 @@
 import logo from "./assets/lm_logo.png";
 import co from "./assets/co_lm.jpeg";
+import { useForm, ValidationError } from "@formspree/react";
+
+function ContactForm() {
+  const [state, handleSubmit] = useForm("xkopzopz");
+
+  if (state.succeeded) {
+    return (
+      <div className="rounded-[2rem] bg-white p-8 shadow-sm ring-1 ring-yellow-200">
+        <div className="flex min-h-[420px] flex-col items-center justify-center text-center">
+          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-yellow-500 text-2xl font-bold text-[#20104a]">
+            ✓
+          </div>
+          <h3 className="text-2xl font-black text-[#20104a]">
+            Demande envoyée
+          </h3>
+          <p className="mt-4 max-w-md leading-7 text-slate-600">
+            Merci. Votre demande a bien été envoyée. Nous vous répondrons dans
+            les plus brefs délais.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="rounded-[2rem] bg-white p-8 shadow-sm ring-1 ring-yellow-200"
+    >
+      <div className="grid gap-5 md:grid-cols-2">
+        <div>
+          <input
+            id="nom"
+            type="text"
+            name="nom"
+            required
+            className="w-full rounded-2xl border border-slate-200 px-4 py-4 outline-none transition focus:border-yellow-500"
+            placeholder="Nom"
+          />
+          <ValidationError
+            prefix="Nom"
+            field="nom"
+            errors={state.errors}
+            className="mt-2 text-sm text-red-600"
+          />
+        </div>
+
+        <div>
+          <input
+            id="entreprise"
+            type="text"
+            name="entreprise"
+            className="w-full rounded-2xl border border-slate-200 px-4 py-4 outline-none transition focus:border-yellow-500"
+            placeholder="Entreprise"
+          />
+          <ValidationError
+            prefix="Entreprise"
+            field="entreprise"
+            errors={state.errors}
+            className="mt-2 text-sm text-red-600"
+          />
+        </div>
+
+        <div className="md:col-span-2">
+          <input
+            id="email"
+            type="email"
+            name="email"
+            required
+            className="w-full rounded-2xl border border-slate-200 px-4 py-4 outline-none transition focus:border-yellow-500"
+            placeholder="Email"
+          />
+          <ValidationError
+            prefix="Email"
+            field="email"
+            errors={state.errors}
+            className="mt-2 text-sm text-red-600"
+          />
+        </div>
+
+        <div className="md:col-span-2">
+          <input
+            id="telephone"
+            type="tel"
+            name="telephone"
+            className="w-full rounded-2xl border border-slate-200 px-4 py-4 outline-none transition focus:border-yellow-500"
+            placeholder="Téléphone"
+          />
+          <ValidationError
+            prefix="Téléphone"
+            field="telephone"
+            errors={state.errors}
+            className="mt-2 text-sm text-red-600"
+          />
+        </div>
+
+        <div className="md:col-span-2">
+          <textarea
+            id="message"
+            name="message"
+            required
+            className="min-h-[160px] w-full rounded-2xl border border-slate-200 px-4 py-4 outline-none transition focus:border-yellow-500"
+            placeholder="Décrivez votre besoin"
+          ></textarea>
+          <ValidationError
+            prefix="Message"
+            field="message"
+            errors={state.errors}
+            className="mt-2 text-sm text-red-600"
+          />
+        </div>
+
+        <input
+          type="hidden"
+          name="_subject"
+          value="Nouvelle demande depuis LM_FIELD"
+        />
+      </div>
+
+      <button
+        type="submit"
+        disabled={state.submitting}
+        className="mt-6 rounded-2xl bg-yellow-500 px-6 py-4 font-semibold text-[#20104a] transition hover:bg-yellow-400 disabled:cursor-not-allowed disabled:opacity-60"
+      >
+        {state.submitting ? "Envoi..." : "Envoyer la demande"}
+      </button>
+    </form>
+  );
+}
 
 export default function App() {
   const services = [
@@ -84,25 +213,46 @@ export default function App() {
           </div>
 
           <nav className="hidden items-center gap-8 md:flex">
-            <a href="#services" className="text-sm font-medium text-slate-700 hover:text-yellow-600">
+            <a
+              href="#services"
+              className="text-sm font-medium text-slate-700 hover:text-yellow-600"
+            >
               Services
             </a>
-            <a href="#expertise" className="text-sm font-medium text-slate-700 hover:text-yellow-600">
+            <a
+              href="#expertise"
+              className="text-sm font-medium text-slate-700 hover:text-yellow-600"
+            >
               Expertise
             </a>
-            <a href="#collecte" className="text-sm font-medium text-slate-700 hover:text-yellow-600">
+            <a
+              href="#collecte"
+              className="text-sm font-medium text-slate-700 hover:text-yellow-600"
+            >
               Collecte
             </a>
-            <a href="#reseau" className="text-sm font-medium text-slate-700 hover:text-yellow-600">
+            <a
+              href="#reseau"
+              className="text-sm font-medium text-slate-700 hover:text-yellow-600"
+            >
               Réseau terrain
             </a>
-            <a href="#qualite" className="text-sm font-medium text-slate-700 hover:text-yellow-600">
+            <a
+              href="#qualite"
+              className="text-sm font-medium text-slate-700 hover:text-yellow-600"
+            >
               Qualité
             </a>
-            <a href="#equipe" className="text-sm font-medium text-slate-700 hover:text-yellow-600">
+            <a
+              href="#equipe"
+              className="text-sm font-medium text-slate-700 hover:text-yellow-600"
+            >
               Équipe
             </a>
-            <a href="#contact" className="text-sm font-medium text-slate-700 hover:text-yellow-600">
+            <a
+              href="#contact"
+              className="text-sm font-medium text-slate-700 hover:text-yellow-600"
+            >
               Contact
             </a>
           </nav>
@@ -127,7 +277,9 @@ export default function App() {
               Votre partenaire terrain au Maroc et en Afrique du Nord
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/80 sm:text-lg">
-              LM_FIELD accompagne les instituts, marques et cabinets d’études avec des dispositifs terrain fiables, rapides et parfaitement supervisés.
+              LM_FIELD accompagne les instituts, marques et cabinets d’études
+              avec des dispositifs terrain fiables, rapides et parfaitement
+              supervisés.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a
@@ -162,7 +314,10 @@ export default function App() {
         </div>
       </section>
 
-      <section id="expertise" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section
+        id="expertise"
+        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+      >
         <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-600">
@@ -172,7 +327,9 @@ export default function App() {
               Une structure agile, performante et orientée résultats
             </h2>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-              Nous mettons à disposition des équipes de terrain, des superviseurs et des outils de collecte modernes pour sécuriser chaque étape de vos études marketing.
+              Nous mettons à disposition des équipes de terrain, des
+              superviseurs et des outils de collecte modernes pour sécuriser
+              chaque étape de vos études marketing.
             </p>
           </div>
 
@@ -218,7 +375,10 @@ export default function App() {
                 <p className="mt-4 text-sm leading-7 text-slate-600">
                   {service.description}
                 </p>
-                <a href="#contact" className="mt-5 inline-block font-semibold text-yellow-600">
+                <a
+                  href="#contact"
+                  className="mt-5 inline-block font-semibold text-yellow-600"
+                >
                   En savoir plus →
                 </a>
               </article>
@@ -227,7 +387,10 @@ export default function App() {
         </div>
       </section>
 
-      <section id="collecte" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section
+        id="collecte"
+        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+      >
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-600">
             Collecte des données
@@ -236,7 +399,8 @@ export default function App() {
             Une collecte CAPI plus rapide, plus fiable et plus intelligente
           </h2>
           <p className="mt-6 text-lg leading-8 text-slate-600">
-            Les interviews sont réalisées sur tablettes en face à face avec un suivi moderne, centralisé et opérationnel.
+            Les interviews sont réalisées sur tablettes en face à face avec un
+            suivi moderne, centralisé et opérationnel.
           </p>
         </div>
 
@@ -270,13 +434,21 @@ export default function App() {
                 key={item.city}
                 className="rounded-3xl border border-[#e7e1f7] bg-white p-8 shadow-sm"
               >
-                <h3 className="text-2xl font-black text-[#20104a]">{item.city}</h3>
+                <h3 className="text-2xl font-black text-[#20104a]">
+                  {item.city}
+                </h3>
                 <div className="mt-6 space-y-3 text-slate-700">
                   <p>
-                    <span className="font-bold text-yellow-600">{item.supervisors}</span> superviseurs
+                    <span className="font-bold text-yellow-600">
+                      {item.supervisors}
+                    </span>{" "}
+                    superviseurs
                   </p>
                   <p>
-                    <span className="font-bold text-yellow-600">{item.investigators}</span> enquêteurs
+                    <span className="font-bold text-yellow-600">
+                      {item.investigators}
+                    </span>{" "}
+                    enquêteurs
                   </p>
                 </div>
               </div>
@@ -310,14 +482,17 @@ export default function App() {
         </div>
       </section>
 
-      <section id="equipe" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section
+        id="equipe"
+        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+      >
         <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-start">
           <div className="rounded-[2rem] border border-yellow-200 bg-[#faf7ef] p-8 shadow-sm">
             <img
-  src={co}
-  alt="Head of Operations"
-  className="mx-auto h-32 w-32 rounded-full object-cover border-4 border-yellow-400 shadow-lg"
-/>
+              src={co}
+              alt="Head of Operations"
+              className="mx-auto h-32 w-32 rounded-full object-cover border-4 border-yellow-400 shadow-lg"
+            />
             <h3 className="mt-6 text-center text-2xl font-black text-[#20104a]">
               Said Mchater
             </h3>
@@ -337,10 +512,13 @@ export default function App() {
               Une direction terrain expérimentée
             </h2>
             <p className="mt-6 text-lg leading-8 text-slate-600">
-              Saïd Mchater pilote les opérations de LM_FIELD et veille au respect des standards ainsi qu’aux process de collecte.
+              Saïd Mchater pilote les opérations de LM_FIELD et veille au
+              respect des standards ainsi qu’aux process de collecte.
             </p>
             <p className="mt-4 leading-8 text-slate-600">
-              Il dispose d’une forte expérience dans la direction des opérations terrain, la supervision et les études nationales complexes.
+              Il dispose d’une forte expérience dans la direction des
+              opérations terrain, la supervision et les études nationales
+              complexes.
             </p>
 
             <div className="mt-8 grid gap-4 md:grid-cols-3">
@@ -367,7 +545,10 @@ export default function App() {
         </div>
       </section>
 
-      <section id="contact" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section
+        id="contact"
+        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+      >
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-600">
@@ -377,37 +558,43 @@ export default function App() {
               Confiez-nous votre prochaine étude terrain
             </h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              Basée à Casablanca, LM_FIELD accompagne ses clients avec réactivité, proximité et exigence opérationnelle.
+              Basée à Casablanca, LM_FIELD accompagne ses clients avec
+              réactivité, proximité et exigence opérationnelle.
             </p>
 
             <div className="mt-8 space-y-4 rounded-3xl bg-[#faf7ef] p-6 ring-1 ring-yellow-200">
               <p className="text-slate-700">
-                <span className="font-bold text-[#20104a]">Adresse :</span> Casablanca
+                <span className="font-bold text-[#20104a]">Adresse :</span>{" "}
+                Casablanca
               </p>
               <p className="text-slate-700">
-                <span className="font-bold text-[#20104a]">Téléphone :</span> +212661417965 
+                <span className="font-bold text-[#20104a]">Téléphone :</span>{" "}
+                +212661417965
               </p>
               <p className="text-slate-700">
-                <span className="font-bold text-[#20104a]">Email :</span><a href="http://www.bing.com/search?filters=ufn%3a%22Gmail%22+sid%3a%22c2fb3ac4-dd75-2fbf-e526-76f8a2edfe55%22&asbe=HS&qs=MB&pq=gma&sk=CSYN1&sc=15-3&pglt=299&q=gmail&cvid=71f9fd1023544397afde0dc56c5ed864&gs_lcrp=EgRlZGdlKgYIARAuGEAyBwgAEAAY-QcyBggBEC4YQDIGCAIQRRg5MgYIAxBFGDsyBggEEAAYQDIGCAUQABhAMgYIBhAAGEAyBggHEAAYQDIGCAgQABhA0gEINDI2OGowajGoAgCwAgA&FORM=ANNTA1&PC=HCTS" target="_blank">smchater@lm-field.com</a> 
+                <span className="font-bold text-[#20104a]">Email :</span>{" "}
+                <a
+                  href="mailto:smchater@lm-field.com"
+                  className="text-yellow-600 hover:underline"
+                >
+                  smchater@lm-field.com
+                </a>
               </p>
-               <p className="text-slate-700">
-                <span className="font-bold text-[#20104a]">linkedin :</span><a href="https://www.linkedin.com/in/said-mchater-b6797421?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank"> https://www.linkedin.com/in/said-mchater
-              </a></p>
+              <p className="text-slate-700">
+                <span className="font-bold text-[#20104a]">LinkedIn :</span>{" "}
+                <a
+                  href="https://www.linkedin.com/in/said-mchater-b6797421?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-yellow-600 hover:underline break-all"
+                >
+                  https://www.linkedin.com/in/said-mchater
+                </a>
+              </p>
             </div>
           </div>
- 
-          <div className="rounded-[2rem] bg-white p-8 shadow-sm ring-1 ring-yellow-200">
-            <div className="grid gap-5 md:grid-cols-2">
-              <input className="rounded-2xl border border-slate-200 px-4 py-4 outline-none focus:border-yellow-500" placeholder="Nom" />
-              <input className="rounded-2xl border border-slate-200 px-4 py-4 outline-none focus:border-yellow-500" placeholder="Entreprise" />
-              <input className="rounded-2xl border border-slate-200 px-4 py-4 outline-none focus:border-yellow-500 md:col-span-2" placeholder="Email" />
-              <input className="rounded-2xl border border-slate-200 px-4 py-4 outline-none focus:border-yellow-500 md:col-span-2" placeholder="Téléphone" />
-              <textarea className="min-h-[160px] rounded-2xl border border-slate-200 px-4 py-4 outline-none focus:border-yellow-500 md:col-span-2" placeholder="Décrivez votre besoin" />
-            </div>
-            <button className="mt-6 rounded-2xl bg-yellow-500 px-6 py-4 font-semibold text-[#20104a] transition hover:bg-yellow-400">
-              Envoyer la demande
-            </button>
-          </div>
+
+          <ContactForm />
         </div>
       </section>
 
@@ -415,10 +602,18 @@ export default function App() {
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-white/80 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
           <p>© LM_FIELD — Refonte inspirée d’un style corporate moderne.</p>
           <div className="flex flex-wrap gap-6">
-            <a href="#services" className="hover:text-yellow-400">Services</a>
-            <a href="#collecte" className="hover:text-yellow-400">Collecte</a>
-            <a href="#qualite" className="hover:text-yellow-400">Qualité</a>
-            <a href="#contact" className="hover:text-yellow-400">Contact</a>
+            <a href="#services" className="hover:text-yellow-400">
+              Services
+            </a>
+            <a href="#collecte" className="hover:text-yellow-400">
+              Collecte
+            </a>
+            <a href="#qualite" className="hover:text-yellow-400">
+              Qualité
+            </a>
+            <a href="#contact" className="hover:text-yellow-400">
+              Contact
+            </a>
           </div>
         </div>
       </footer>
